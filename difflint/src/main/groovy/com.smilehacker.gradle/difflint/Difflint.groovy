@@ -5,10 +5,11 @@ import org.gradle.api.Project
 
 public class Difflint implements Plugin<Project> {
     void apply(Project project) {
+        project.extensions.create("difflint", DifflintExtension)
         project.task('testTask') << {
             println "Hello gradle plugin"
             GitHelper helper = new GitHelper()
-            helper.init()
+            helper.run(project.properties.get("branch", null) as String)
         }
     }
 }
