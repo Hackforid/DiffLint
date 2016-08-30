@@ -27,6 +27,7 @@ dependencies {
 
 buildscript {
     repositories {
+        jcenter()
         maven {
             url uri('../repo')
         }
